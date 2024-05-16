@@ -5,54 +5,54 @@ using namespace std;
 template<typename T>
 
 void intercambiar(T& a, T& b) {
-    T equals = a;
+    T temporal = a;
     a = b;
-    b = equals;
+    b = temporal;
 }
 
 template<typename T>
-int particion(T arr[], int menor, int mayor) {
-    T guardado = arr[mayor];  
+int particion(T array[], int menor, int mayor) {
+    T pivote = array[mayor];  
     int i = (menor - 1);  
     
     for (int j = menor; j <= mayor - 1; j++) {
-        if (arr[j] < guardado) {
+        if (array[j] < pivote) {
             i++;    
-            intercambiar(arr[i], arr[j]);
+            intercambiar(array[i], arr[j]);
         }
     }
-    intercambiar(arr[i + 1], arr[mayor]);
+    intercambiar(array[i + 1], array[mayor]);
     return (i + 1);
 }
 
 template<typename T>
-void quickSort(T arr[], int menor, int mayor) {
+void quickSort(T array[], int menor, int mayor) {
     if (menor < mayor) {
-        int pi = particion(arr, menor, mayor);
+        int pi = particion(array, menor, mayor);
 
-        quickSort(arr, menor, pi - 1);
-        quickSort(arr, pi + 1, mayor);
+        quickSort(array, menor, pi - 1);
+        quickSort(array, pi + 1, mayor);
     }
 }
 
 template<typename T>
-void imprimirArreglo(T arr[], int size) {
+void imprimirArreglo(T array[], int size) {
     for (int i = 0; i < size; i++)
-        std::cout << arr[i] << " ";
+        std::cout << array[i] << " ";
     std::cout << endl;
 }
 
 int main() {
-    int arr[] = {10, 7, 8, 9, 1, 5,15};
-    int n = sizeof(arr) / sizeof(arr[0]);
+    int array[] = {10, 7, 8, 9, 1, 5,15};
+    int n = sizeof(array) / sizeof(array[0]);
     
     std::cout << "Arreglo original:" << endl;
-    imprimirArreglo(arr, n);
+    imprimirArreglo(array, n);
 
-    quickSort(arr, 0, n - 1);
+    quickSort(array, 0, n - 1);
 
     std::cout << "Arreglo ordenado:" << endl;
-    imprimirArreglo(arr, n);
+    imprimirArreglo(array, n);
     
     return 0;
 }
