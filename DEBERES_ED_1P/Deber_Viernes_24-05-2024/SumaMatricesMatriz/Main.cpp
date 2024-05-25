@@ -1,3 +1,11 @@
+/*
+Universidad de las Fuerzas Armadas
+           ESPE 
+Autor: Josue Solano
+Programa: Suma Matrices con lambdas recursivas retorno una Matriz
+Fecha Creacion: 25-05-2024
+Fecha Modificacion: 25-05-2024
+*/
 #include "Matrices.cpp"
 
 #define MAX 3

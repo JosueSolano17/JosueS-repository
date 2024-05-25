@@ -1,3 +1,11 @@
+/*
+Universidad de las Fuerzas Armadas
+           ESPE 
+Autor: Josue Solano
+Programa: Multiplicacion de un escalar por un vector de tamanio 'x'
+Fecha Creacion: 25-05-2024
+Fecha Modificacion: 25-05-2024
+*/
 #include <iostream>
 #include <functional>
 #include "Multi.cpp"

@@ -1,3 +1,11 @@
+/*
+Universidad de las Fuerzas Armadas
+           ESPE 
+Autor: Josue Solano
+Programa: Creacion y eliminacion de objetos
+Fecha Creacion: 25-05-2024
+Fecha Modificacion: 25-05-2024
+*/
 #include "Creacion.cpp"
 #include <iostream>
 #include <cstdint>
