@@ -1,3 +1,11 @@
+/*
+Universidad de las Fuerzas Armadas
+           ESPE 
+Autor: Josue Solano
+Programa: Guardar un arreglo
+Fecha Creacion: 22-05-2024
+Fecha Modificacion: 22-05-2024
+*/
 #include "GuardarArreglo.cpp"
 #include <iostream>
 
