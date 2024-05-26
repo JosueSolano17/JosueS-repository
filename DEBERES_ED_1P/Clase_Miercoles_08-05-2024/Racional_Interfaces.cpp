@@ -19,7 +19,7 @@ int Suma_int(Racional r1, Racional r2){
          
     }
     
-     cout << "Numerador: " << numerador << ", Denominador: " << denominador << endl;
+    
      cout << numerador << endl;
      cout << "----" << endl;
      cout << denominador << endl;
