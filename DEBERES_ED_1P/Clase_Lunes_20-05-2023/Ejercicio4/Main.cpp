@@ -11,13 +11,13 @@ Fecha Modificacion: 22-05-2024
 using namespace std;
 
 int main() {
-    MinMaxCalculator<int> intCalculator(10, 5);
-    cout << "Máximo: " << intCalculator.max() << endl;
-    cout << "Mínimo: " << intCalculator.min() << endl;
+    MinMax<int> calcularEntero(10, 5);
+    cout << "Máximo: " << calcularEntero.max() << endl;
+    cout << "Mínimo: " << calcularEntero.min() << endl;
 
-    MinMaxCalculator<double> doubleCalculator(10.5, 2.5);
-    cout << "Máximo: " << doubleCalculator.max() << endl;
-    cout << "Mínimo: " << doubleCalculator.min() << endl;
+    MinMax<double> calcularDouble(10.5, 2.5);
+    cout << "Máximo: " << calcularDouble.max() << endl;
+    cout << "Mínimo: " << calcularDouble.min() << endl;
 
     return 0;
 }
