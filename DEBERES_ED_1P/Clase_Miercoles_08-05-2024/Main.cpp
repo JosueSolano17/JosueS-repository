@@ -1,3 +1,10 @@
+/*Universidad de las Fuerzas Armadas
+           ESPE 
+Autor: Josue Solano
+Programa: Obtener el valor donde almacene dos valores de cualquier tipo y proporcione métodos para obtener estos valores.
+Fecha Creacion: 15-05-2024
+Fecha Modificacion: 15-05-2024
+*/
 #include "Racional.cpp"
 #include "Racional_Interfaces.cpp"
 #include <iostream>
