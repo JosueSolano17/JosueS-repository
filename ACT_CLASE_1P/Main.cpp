@@ -11,5 +11,5 @@ int main(){
     F2.in();
     result= F1*F2;
     result.out();
-
+    
 }
