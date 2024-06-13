@@ -1,4 +1,4 @@
-#include "Lista_Doble.cpp"
+#include "Lista_Simple.cpp"
 #include <iostream>
 #include <string>
 
@@ -24,7 +24,7 @@ int menu() {
 }
 
 int main() {
-    Lista_Doble lista;
+    Lista_Simple lista;
     int count=0;
     
 
@@ -37,10 +37,22 @@ int main() {
                 string nombre1,nombre2,ape,ced;
                 cout << "Ingrese el primer nombre del nuevo nodo: ";
                 cin >> nombre1;
+                while(lista.validarNombre(nombre1) == false){
+                    cout << "Ingrese solo letras: ";
+                    cin >> nombre1;
+                }
                 cout << "Ingrese el segundo nombre del nuevo nodo: ";
                 cin >> nombre2;
+                while(lista.validarNombre(nombre2) == false){
+                    cout << "Ingrese solo letras: ";
+                    cin >> nombre2;
+                }
                 cout << "Ingrese el apellido del nuevo nodo: ";
                 cin >> ape;
+                while(lista.validarNombre(ape) == false){
+                    cout << "Ingrese solo letras: ";
+                    cin >> ape;
+                }
                 cout << "Ingrese la cedula del nuevo nodo: ";
                 cin >> ced;
                 while(lista.validarCedula(ced) == false){
@@ -54,10 +66,22 @@ int main() {
                 string nombre1,nombre2,ape;
                 cout << "Ingrese el primer nombre del nuevo nodo: ";
                 cin >> nombre1;
+                while(lista.validarNombre(nombre1) == false){
+                    cout << "Ingrese solo letras: ";
+                    cin >> nombre1;
+                }
                 cout << "Ingrese el segundo nombre del nuevo nodo: ";
                 cin >> nombre2;
+                while(lista.validarNombre(nombre2) == false){
+                    cout << "Ingrese solo letras: ";
+                    cin >> nombre2;
+                }
                 cout << "Ingrese el apellido del nuevo nodo: ";
                 cin >> ape;
+                while(lista.validarNombre(ape) == false){
+                    cout << "Ingrese solo letras: ";
+                    cin >> ape;
+                }
                 lista.Eliminar(nombre1, nombre2,ape);
                 break;
             }
