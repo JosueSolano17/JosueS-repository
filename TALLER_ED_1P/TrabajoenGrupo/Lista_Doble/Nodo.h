@@ -10,6 +10,7 @@
 #include <string>
 #include "Empleado.h"
 
+
 using namespace std;
 
 class Nodo {

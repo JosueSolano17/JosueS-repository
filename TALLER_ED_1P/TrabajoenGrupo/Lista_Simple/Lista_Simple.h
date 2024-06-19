@@ -22,16 +22,16 @@ public:
     void Comprobar_existencia(string& N1, string& N2, string& Ape, int count, Nodo* nodo);
     string crearCorreo(string& N1, string& N2, string& Ape,int count, string dominio = "espe.edu.ec");
     void guardarArchivo(const string& nombreArchivo)const;
-    void Mostrar() ;
+    void Mostrar();
     bool validarCedula(string& Ced);
     bool validarNombre(string& nombre);
     string generarContrasenia(Nodo* cabeza);
     string encriptar(string& contrasenia);
     string crearID();
     void ingresarSueldo(string& Ced, double sueldo);
-
+    bool cedulaExistente(const string& Ced);
 private:
     Nodo* cabeza;
-    Nodo* cola;    
     Empleado emp;
 };
+

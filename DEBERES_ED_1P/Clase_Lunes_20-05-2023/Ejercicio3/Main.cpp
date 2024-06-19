@@ -2,8 +2,8 @@
            ESPE 
 Autor: Josue Solano
 Programa: OPeraciones con vector
-Fecha Creacion: 22-05-2024
-Fecha Modificacion: 22-05-2024
+Fecha Creacion: 20-05-2024
+Fecha Modificacion: 20-05-2024
 */
 #include <iostream>
 #include <vector>

@@ -6,10 +6,12 @@
  ***********************************************************************/
 
 #include "Lista_Simple.h"
+#include "Empleado.h"
 #include <iostream>
 #include <algorithm>
 #include <cctype>
 #include <fstream>
+#include <iomanip>
 
 using namespace std;
 
@@ -43,7 +45,16 @@ void Lista_Simple::Insertar(string& N1, string& N2, string& Ape,string& Ced, int
 
     string correo = crearCorreo(N1,N2,Ape,count,dominio);
     cout << "Correo generado: " << correo << endl;
+
+    string id = crearID();
+    cout << "ID generado: " << id << endl;
+    nuevoNodo->setID(id);
+    Empleado* emp = new Empleado(id, 0.0);
+    nuevoNodo->setEmpleado(emp);
+    guardarArchivo("C:\\Users\\Usuario\\Pictures\\xd\\list.txt");
 }
+
+
 void Lista_Simple::Comprobar_existencia(string& N1, string& N2, string& Ape, int count, Nodo* nodo) {
     count = -1;
     Nodo* actual = cabeza;
@@ -134,8 +145,17 @@ void Lista_Simple::guardarArchivo(const string& nombreArchivo) const {
                 << ", Nombre2: " << actual->getNombre2() 
                 << ", Apellido: " << actual->getApellido() 
                 << ", Correo: " << actual->getCorreo()
-                << ", Cedula: " << actual ->getCedula()
-                << endl;
+                << ", Cedula: " << actual->getCedula();
+        
+        Empleado* emp = actual->getEmpleado();
+        if (emp != nullptr) {
+            archivo << ", ID Empleado: " << emp->getID()
+                    << ", Sueldo: " << emp->getSueldo();
+        } else {
+            archivo << ", Empleado no asignado";
+        }
+        archivo << endl;
+
         actual = actual->getSiguiente();
     }
 
@@ -146,17 +166,28 @@ void Lista_Simple::guardarArchivo(const string& nombreArchivo) const {
 
 
 
-void Lista_Simple::Mostrar() const {
+void Lista_Simple::Mostrar() {
     Nodo* actual = cabeza;
+
     while (actual != nullptr) {
-        cout << "Nombre1: " << actual->getNombre1() 
-             << ", Nombre2: " << actual->getNombre2() 
-             << ", Apellido: " << actual->getApellido() 
-             << ", Correo: " << actual->getCorreo()
-             << " -> ";
+        cout << "Nombre1: " << actual->getNombre1() << endl;
+        cout << "Nombre2: " << actual->getNombre2() << endl;
+        cout << "Apellido: " << actual->getApellido() << endl;
+        cout << "Correo: " << actual->getCorreo() << endl;
+        cout << "Cedula: " << actual->getCedula() << endl;
+
+        Empleado* emp = actual->getEmpleado();
+        if (emp != nullptr) {
+            cout << "ID Empleado: " << emp->getID() << endl;
+            cout << "Sueldo: " << emp->getSueldo() << endl;
+        } else {
+            cout << "Empleado no asignado." << endl;
+        }
+
+        cout << "--------------------------" << endl;
+
         actual = actual->getSiguiente();
     }
-    cout << "nullptr" << endl;
 }
 
 bool Lista_Simple:: validarCedula(string &cedula) {
@@ -228,6 +259,37 @@ string Lista_Simple :: encriptar(string& contrasenia){
                 c = ((c - base + desplazamiento) % 26) + base;
             }
         }
-        
         return contraseniaEncriptada;
+}
+
+void Lista_Simple::ingresarSueldo(string& Ced, double Sueldo) {
+    Nodo* actual = cabeza;
+    while (actual != nullptr) {
+        if (actual->getCedula() == Ced) {
+            Empleado* empleado = actual->getEmpleado();
+            if (empleado == nullptr) {  
+                empleado = new Empleado(actual->getID(), Sueldo);
+                actual->setEmpleado(empleado); // Asignar el empleado al nodo
+            } else {
+                empleado->setSueldo(Sueldo);
+            }
+            cout << "Sueldo asignado a " << actual->getNombre1() << " " << actual->getApellido() << ": " << Sueldo << endl;
+             guardarArchivo("C:\\Users\\Usuario\\Pictures\\xd\\list.txt");
+            return;
+        }
+        actual = actual->getSiguiente();
+    }
+    cout << "Empleado con cedula " << Ced << " no encontrado." << endl;
+   
+}
+
+
+
+string Lista_Simple :: crearID(){
+    string constante = "ESPE-";
+    int contador;
+    contador++;
+    stringstream ss;
+    ss << constante << setfill('0') << setw(3) << contador;
+    return ss.str();
 }

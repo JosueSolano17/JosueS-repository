@@ -99,7 +99,6 @@ Nodo::Nodo(string N1, string N2, string Ape,string Ced, Nodo* S, Nodo* A)
    Apellido = Ape;
    Cedula = Ced;
    Siguiente=S;
-   Anterior=A;
 
 }
 
@@ -146,29 +145,7 @@ void Nodo::setSiguiente(Nodo* newSiguiente)
    Siguiente = newSiguiente;
 }
 
-////////////////////////////////////////////////////////////////////////
-// Name:       Nodo::getAnterior()
-// Purpose:    Implementation of Nodo::getAnterior()
-// Return:     Nodo*
-////////////////////////////////////////////////////////////////////////
 
-Nodo* Nodo::getAnterior(void)
-{
-   return Anterior;
-}
-
-////////////////////////////////////////////////////////////////////////
-// Name:       Nodo::setAnterior(Nodo* newAnterior)
-// Purpose:    Implementation of Nodo::setAnterior()
-// Parameters:
-// - newAnterior
-// Return:     void
-////////////////////////////////////////////////////////////////////////
-
-void Nodo::setAnterior(Nodo* newAnterior)
-{
-   Anterior = newAnterior;
-}
 
 Empleado* Nodo :: getEmpleado(void)
 {

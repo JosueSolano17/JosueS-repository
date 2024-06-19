@@ -2,8 +2,8 @@
            ESPE 
 Autor: Josue Solano
 Programa: Calcular operaciones basicas y una lambda para cualquier tipo de operacion
-Fecha Creacion: 22-05-2024
-Fecha Modificacion: 22-05-2024
+Fecha Creacion: 20-05-2024
+Fecha Modificacion: 20-05-2024
 */
 #include <iostream>
 #include "Calcular.cpp"

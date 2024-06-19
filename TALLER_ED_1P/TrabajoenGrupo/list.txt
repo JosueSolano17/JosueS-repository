@@ -1,0 +1,1 @@
+Nombre1: Josue, Nombre2: Vital, Apellido: Solano, Correo: jvsolano@espe.edu.ec, Cedula: 1900767508

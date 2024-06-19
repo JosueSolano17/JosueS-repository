@@ -1,9 +1,21 @@
 #include "Lista_Simple.cpp"
 #include <iostream>
 #include <string>
+#include <iomanip> 
+#include <limits> 
+#include <cmath>
+#include <regex> 
+#include<sstream>
 
 using namespace std;
+bool validarFormatoSueldo(const string& input_sueldo) {
+    istringstream iss(input_sueldo);
+    double sueldo;
+    iss >> noskipws >> sueldo;  // Leer el sueldo como un double
 
+    // Verificar si la lectura fue exitosa y si el sueldo tiene máximo 2 decimales
+    return iss.eof() && sueldo >= 0 && abs(sueldo * 100 - round(sueldo * 100)) < 0.001;
+}
 int menu() {
     int opcion;
     cout << "\n--- Menú ---" << endl;
@@ -25,7 +37,7 @@ int menu() {
 }
 
 int main() {
-    Lista_Simple lista;
+    Lista_Doble lista;
     int count=0;
     
 
@@ -105,23 +117,34 @@ int main() {
                 break;
             }
 
-            case 4:{
+            case 4: {
                 string ced;
                 double sueldo;
+
                 cout << "Ingrese la cedula del empleado: ";
                 cin >> ced;
-                while(lista.validarCedula(ced) == false){
+                while (!lista.validarCedula(ced)) {
                     cout << "Ingrese una cedula valida: ";
                     cin >> ced;
                 }
-                cout << "Ingrese Sueldo: ";
-                cin >> sueldo;
-                lista.ingresarSueldo(ced,sueldo);
+
+                // Limpiamos el buffer antes de ingresar el sueldo
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+                do {
+                    sueldo = ingresarSueldo("Ingrese Sueldo (máximo 2 decimales)");
+                    if (sueldo < 0) {
+                        cout << "Ingrese un sueldo válido (mayor o igual a 0)" << endl;
+                    }
+                } while (sueldo < 0);
+
+                // Llamar a la función de ingresar sueldo con el sueldo validado
+                lista.ingresarSueldo(ced, sueldo);
                 break;
-            }            
+            }
             
             case 5:
-                lista.guardarArchivo("C:\\Users\\DELL\\Desktop\\Estructura_de_Datos\\TALLER_ED_1P\\list.txt");
+                lista.guardarArchivo("C:\\Users\\Usuario\\Pictures\\xd\\lista.txt");
                 break;
             case 6:
                 cout << "Lista actual: ";
